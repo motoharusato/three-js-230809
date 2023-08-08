@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+#contents {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    @include max-screen($tablet){
+        width: 100%;
+    }
+}
+.underwrapper{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include max-screen($tablet){
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    @include max-screen($mobile){
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    &.sidelayout{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .contents{
+            width: 80%; // change
+            background-color: rgba(0,255,0,.2); // remove
+        }
+        .sidenavi{
+            width: 20%; // change
+            background-color: rgba(0,0,255,.2); // remove
+        }
+        .fullsize{
+            width: 100%;
+            background-color: rgba(255,0,0,.2); // remove
+        }
+    }
+}

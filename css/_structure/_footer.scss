@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#footer{
+    overflow: hidden;
+    position: relative;
+    display: block;
+    @include max-screen($tablet){
+        width: 100%;
+    }
+    .copyright{
+        display: block;
+        padding: 25px 0 27px;
+        background-color:#333333;
+        font-size: 1.1rem;
+        letter-spacing: 0.14em;
+        text-align: center;
+        color:#ffffff;
+        @include max-screen($tablet){
+            padding: 11px 0;
+            letter-spacing: 0;
+            font-size: 0.9rem;
+        }
+    }
+}

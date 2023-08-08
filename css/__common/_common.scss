@@ -1,0 +1,312 @@
+// 0.0.0
+@charset "UTF-8";
+
+// ----------  ----------
+// フォントサイズ汎用クラス
+@for $i from 10 through 50 {
+    .fs#{$i} {
+        font-size: #{$i/10}rem;
+        @media screen and (max-width: 960px) {
+            font-size: #{(($i)-1)/10}rem;
+        }
+        @media screen and (max-width: 428px) {
+            font-size: #{(($i)-2)/10}rem;
+        }
+    }
+    .font-s#{$i} {
+        font-size: #{$i/10}rem;
+        @media screen and (max-width: 960px) {
+            font-size: #{(($i)-1)/10}rem;
+        }
+        @media screen and (max-width: 428px) {
+            font-size: #{(($i)-2)/10}rem;
+        }
+    }
+}
+
+
+// ----------  ----------
+// テキスト揃え汎用クラス
+.t-center {
+    text-align: center;
+}
+
+.t-left {
+    text-align: left;
+}
+
+.t-right {
+    text-align: right;
+}
+
+.txt-center {
+    text-align: center !important;
+}
+
+.txt-left {
+    text-align: left !important;
+}
+
+.txt-right {
+    text-align: right !important;
+}
+
+
+// ----------  ----------
+// ブロック要素汎用クラス
+.block {
+    display: block;
+}
+
+.iblock {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}
+
+.pc-block {
+    display: block;
+    @include max-screen($tablet) {
+        display: none;
+    }
+}
+
+.pc-iblock {
+    display: inline-block;
+    @include max-screen($tablet) {
+        display: none;
+    }
+}
+
+.sp-block {
+    display: none;
+    @include max-screen($tablet) {
+        display: block;
+    }
+}
+
+.sp-iblock {
+    display: none;
+    @include max-screen($tablet) {
+        display: inline-block;
+    }
+}
+
+.sp-visible {
+    @include min-screen($tablet) {
+        display: none !important;
+    }
+}
+
+.pc-visible {
+    @include max-screen($tablet) {
+        display: none !important;
+    }
+}
+
+.mb-visible {
+    @media screen and (min-width: 415px) {
+        display: none !important;
+    }
+}
+
+.tb-visible {
+    @include max-screen($mobile) {
+        display: none !important;
+    }
+}
+
+// ----------  ----------
+// マージン汎用クラス
+$marginSize: (0, 5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100);
+@each $px in $marginSize {
+    .mt#{$px} {
+        margin-top: #{$px}px !important;
+        @media screen and (max-width: 960px) {
+            margin-top: #{$px/2}px !important;
+        }
+    }
+    .mr#{$px} {
+        margin-right: #{$px}px !important;
+        @media screen and (max-width: 960px) {
+            margin-right: #{$px/2}px !important;
+        }
+    }
+    .mb#{$px} {
+        margin-bottom: #{$px}px !important;
+        @media screen and (max-width: 960px) {
+            margin-bottom: #{$px/2}px !important;
+        }
+    }
+    .ml#{$px} {
+        margin-left: #{$px}px !important;
+        @media screen and (max-width: 960px) {
+            margin-left: #{$px/2}px !important;
+        }
+    }
+}
+
+
+// ----------  ----------
+// 【その他汎用クラス】
+.telephone {
+    a {
+        cursor: default;
+        &:hover {
+            opacity: 1;
+        }
+        .android &,
+        .iphone & {
+            opacity: .7;
+        }
+    }
+}
+
+.wrapper {
+    width: $base_w;
+    margin-left: auto;
+    margin-right: auto;
+    @include max-screen($tablet) {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.breadcrumb {
+    box-sizing: border-box;
+    width: $base_w;
+    margin: 0 auto;
+    color: #95949A;
+    @include max-screen($tablet) {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        width: 100%;
+        height: 40px;
+        padding: 0 0 0 10px;
+        white-space: nowrap;
+    }
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+    .inner {
+        padding: 5px 0 2px;
+        @include max-screen($tablet) {
+            display: inline-block;
+            padding-right: 10px;
+        }
+        a {
+            text-decoration: underline;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        > span {
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 4px;
+            margin-right: 5px;
+            font-size: 1.1rem;
+            line-height: 1;
+            letter-spacing: 0.1em;
+            @include max-screen($tablet) {
+                margin-left: 3px;
+                font-size: 1.1rem;
+            }
+            @media screen and (max-width: 375px) {
+                font-size: 1.1rem;
+            }
+            @media screen and (max-width: 320px) {
+                font-size: 1.0rem;
+            }
+            /*
+            &:before {
+                content: ">";
+                vertical-align: middle;
+                display: inline-block;
+                margin: 0 2px;
+                padding: 14px 0 5px;
+                font-size: 1.1rem;
+                @include max-screen($tablet){
+                    margin-right: 3px;
+                    font-size: 1.0rem;
+                }
+            }
+            */
+            &:first-child {
+                //margin: 0;
+                margin-left: 0;
+                &:before {
+                    display: none;
+                }
+            }
+            /*
+            > span,
+            a {
+                vertical-align: middle;
+                display: inline-block;
+                padding: 14px 0 5px;
+                color: #95949A;
+            }
+            */
+        }
+    }
+}
+
+#pageTop {
+    z-index: 400;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    @include max-screen($tablet) {
+        bottom: 0;
+        right: 0;
+        width: 45px;
+        height: 45px;
+    }
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        color: #ffffff;
+        &:before {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-59%);
+            width: 100%;
+            content: "\f077";
+            font-family: FontAwesome;
+            font-size: 2.4rem;
+            text-align: center;
+            line-height: 1;
+            @include max-screen($tablet) {
+                font-size: 2.0rem;
+            }
+        }
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+.cf {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}

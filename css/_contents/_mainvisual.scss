@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.mainvisual{
+	position: relative;
+	
+	.maincatch{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		font-size: 3rem;
+		color: #fff;
+		font-family: 'Poiret One', cursive;
+		padding-top: 200px;
+		letter-spacing: 0.4em;
+	}
+}

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.three-js-sec01 {
+	padding: 150px 0;
+}
+
+#myCanvas01 {
+	background: linear-gradient(-45deg, #EA225E, #C22286, #612E8D);
+	background-size: 200% 200%;
+	animation: GradientBackground 10s ease infinite;
+
+	@keyframes GradientBackground {
+		0% {
+			background-position: 0% 50%;
+		}
+
+		50% {
+			background-position: 100% 50%;
+		}
+
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+}

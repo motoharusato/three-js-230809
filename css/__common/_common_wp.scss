@@ -1,0 +1,137 @@
+// 0.0.0
+@charset "UTF-8";
+
+// wp-pagenavi
+.wp-pagenavi{
+    margin-top: 56px;
+    font-size: 1.6rem;
+    text-align: center;
+    @include max-screen($tablet){
+        margin-top: 28px;
+        font-size: 1.4rem;
+    }
+    /*
+    .first,
+    .last,
+    .pages{
+        display: none;
+    }
+    */
+    .extend,
+    .current{
+        background-color: #ffffff;
+        border-color: #ffffff;
+        color: #333333;
+    }
+    .extend{
+        min-width: auto;
+        min-width: inherit;
+        padding: 0;
+        @include max-screen($mobile){
+            display: none;
+        }
+    }
+    /*
+    .previouspostslink,
+    .nextpostslink{
+        border: none;
+        background-color: transparent;
+        font-size: 1.4rem;
+        @include max-screen($tablet){
+            font-size: 1.2rem;
+        }
+        &:before,
+        &:after{
+            display: block;
+            color: $base_c;
+            font-family: FontAwesome;
+            line-height: 1;
+        }
+        &:before{
+            line-height: 0.7;
+            font-size: 2.0rem;
+            @include max-screen($tablet){
+                font-size: 1.6rem;
+            }
+        }
+        &:after{
+            margin-top: 5px;
+            @include max-screen($tablet){
+                margin-top: 3px;
+            }
+        }
+    }
+    .previouspostslink{
+        margin-right: 31px;
+        @include max-screen($tablet){
+            margin-right: 25px;
+        }
+        @include max-screen($mobile){
+            margin-right: 5px;
+        }
+        &:before{
+            content: "\f104";
+        }
+        &:after{
+            content: "前へ";
+        }
+    }
+    .nextpostslink{
+        margin-left: 31px;
+        @include max-screen($tablet){
+            margin-left: 25px;
+        }
+        @include max-screen($mobile){
+            margin-left: 5px;
+        }
+        &:before{
+            content: "\f105";
+        }
+        &:after{
+            content: "次へ";
+        }
+    }
+    */
+    >a,>span{
+        vertical-align: middle;
+        display: inline-block;
+        min-width: 32px;
+        min-height: 32px;
+        margin: 0 2px 4px 3px;
+        padding: 0 5px;
+        border:1px solid $base_c;
+        background-color: $base_c;
+        text-align: center;
+        color: #ffffff;
+        line-height: 32px;
+        text-decoration: none;
+        transition: all 0.3s linear;
+        @include max-screen($tablet){
+            min-width: 30px;
+            min-height: 30px;
+            padding: 0;
+            line-height: 30px;
+        }
+        @include max-screen($mobile){
+            min-width: 26px;
+            min-height: 26px;
+            padding: 0;
+            line-height: 26px;
+        }
+        
+    }
+    >a{
+        &:hover{
+            opacity: 1;
+            background-color: #ffffff;
+            color: $base_c;
+        }
+    }
+}
+
+.ajax-loader{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,150%);
+}

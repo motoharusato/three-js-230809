@@ -1,0 +1,91 @@
+// 0.0.0
+@charset "UTF-8";
+
+$set-prefix:"",
+-moz-,
+-webkit-,
+-o-,
+-ms-;
+
+@mixin PropertySetPrefix($name, $value) {
+    @each $prefix in $set-prefix {
+        #{$prefix}#{$name}: $value;
+    }
+}
+
+@mixin text-skip {
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+}
+
+@mixin form-reset {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    appearance: none;
+}
+
+@mixin cf {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin yumin {
+    font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+}
+@mixin yugo {
+    font-family: "游ゴシック", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ ゴシック", sans-serif;
+}
+
+@mixin fa4 {
+    font-family: 'FontAwesome';
+}
+@mixin fa6 {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+@mixin fa6-reg {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 400;
+}
+@mixin fa6-bra {
+    font-family: "Font Awesome 6 Brands";
+}
+
+@mixin max-screen($break-point) {
+    @media screen and (max-width: $break-point) {
+        @content;
+    }
+}
+
+@mixin min-screen($break-point) {
+    @media screen and (min-width: $break-point+1px) {
+        @content;
+    }
+}
+
+@mixin screen($break-point-min, $break-point-max) {
+    @media screen and (min-width: $break-point-min+1px) and (max-width: $break-point-max) {
+        @content;
+    }
+}
+
+$tablet: 960px;
+$mobile: 428px;
+
+@mixin smooth {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin nosmooth {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}

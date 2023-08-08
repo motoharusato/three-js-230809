@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+// ---------- デフォルトのタグへのスタイリング ----------
+input,textarea,select{
+    box-sizing: border-box;
+}
+input[type="text"],
+input[type="email"],
+input[type="mail"],
+input[type="tel"],
+textarea{
+    &:focus{
+        &:placeholder{
+            color: transparent !important;
+        }
+        &:focus::-webkit-input-placeholder {
+            color: transparent !important;
+        }
+        &:focus:-moz-placeholder {
+            color: transparent !important;
+        }
+        &:focus::-moz-placeholder {
+            color: transparent !important;
+        }
+    }
+}
+input[type="text"],
+input[type="email"],
+input[type="mail"],
+input[type="tel"],
+input[type="submit"],
+textarea,
+select{
+    @include form-reset;
+    padding: 10px 17px;
+    border: 1px solid #B3B3B3;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+input[type="text"],
+input[type="email"],
+input[type="mail"],
+input[type="tel"],
+textarea{
+    width: 100%;
+}
+input[type="radio"]{
+    margin:0 10px 0 0;
+}
+select{
+    box-sizing: border-box;
+    @include form-reset;
+    padding: 16px 17px 14px;
+    cursor: pointer;
+    @include max-screen($tablet){
+        padding: 11px 17px 9px;
+    }
+    &::-ms-expand {
+        display: none;
+    }
+}
+.table-pcfix{
+    overflow-x: scroll;
+    table{
+        width: $base_w;
+    }
+}
+.unit-table-01{
+    table-layout: fixed;
+    width: 100%;
+    &.tb-vertical{
+        thead{
+            @include max-screen($tablet){
+                display: none;
+            }
+        }
+        tbody{
+            @include max-screen($tablet){
+                //border-top: 1px solid #D6D6D6;
+            }
+        }
+        tr{
+            @include max-screen($tablet){
+                border: 1px solid $table_brc;
+            }
+            th,td{
+                @include max-screen($tablet){
+                    display: block;
+                    width: 100% !important;
+                    border: none;
+                }
+            }
+        }
+    }
+    &.sp-vertical{
+        thead{
+            @include max-screen($mobile){
+                display: none;
+            }
+        }
+        tbody{
+            @include max-screen($mobile){
+                //border-top: 1px solid #D6D6D6;
+            }
+        }
+        tr{
+            @include max-screen($mobile){
+                border: 1px solid $table_brc;
+            }
+            th,td{
+                @include max-screen($mobile){
+                    display: block;
+                    width: 100% !important;
+                    border: none;
+                }
+            }
+        }
+    }
+    &.small{
+        tr{
+            th,td{
+                padding: 10px;
+                @include max-screen($tablet){
+                    padding: 7px;
+                }
+            }
+        }
+    }
+    tr{
+        th,td{
+            border: 1px solid $table_brc;
+            vertical-align: top;
+            padding: 15px;
+            text-align: left;
+            @include max-screen($tablet){
+                padding: 10px;
+            }
+        }
+        th{
+            background-color: $table_bac;
+            font-weight: bold;
+        }
+    }
+}
