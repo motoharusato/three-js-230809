@@ -157,7 +157,8 @@ if ($('#myCanvas01').length) {
 		// 三角錐を作ってみる
 		const geometry = new THREE.TetrahedronGeometry(90, 0); // 三角錐
 		const material = new THREE.MeshStandardMaterial({
-			color: 0x41a9a5
+			color: 0x41a9a5,
+			roughness:0
 		});
 		const box = new THREE.Mesh(geometry, material);
 		scene.add(box);
